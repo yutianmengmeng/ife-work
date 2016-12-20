@@ -1,0 +1,219 @@
+@charset "utf-8";
+*{
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+}
+ul{
+    list-style-type:none;
+}
+p{
+    text-indent:2em;
+}
+body{
+    width: 100%;
+    min-width: 980px;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    margin:0 auto;
+}
+
+.clearfix::before, .clearfix::after {
+    content:"";
+    display:table;
+}
+.clearfix::after{
+    clear:both;
+    overflow:hidden;
+}
+.clearfix{
+    zoom:1;
+}
+header{
+    width: 100%;
+    background-color:#522a5c;
+    min-width: 980px;
+}
+header .wrapper{
+    padding: 50px 0 10px;
+    height: 80px;
+    box-sizing: border-box;
+}
+header .headleft {
+    float: left;
+    color:#fff;
+    vertical-align: bottom;
+    margin-left:110px;
+}
+
+header .headright{
+    float: right;
+    vertical-align: bottom;
+    margin-right:70px;
+}
+
+header .headright ul li{
+    float: left;
+    margin:0 10px;
+}
+
+header .wrapper .logo{
+    float: right;
+    margin:-4px 20px 0 0;
+    height:34px;
+    width:30px;
+    background: url("../img/icon-github.png");
+}
+@media only screen and (max-width: 980px) {
+    header .wrapper .logo{
+        display: none;
+    }
+}
+header .banner{
+    width:100%;
+    background:url("../img/banner-bg.jpg") no-repeat;
+    height:524px;
+    background-size: cover;
+    position: relative;
+}
+header .banner .brief{
+    position: absolute;
+    right:110px;
+    bottom:0;
+    width: 360px;
+    height:120px;
+    padding:10px;
+    background-color: rgba(255,255,255,0.2);
+    color:#fff;
+}
+header .banner .brief h3{
+    position: absolute;
+    top:10px;
+    right:40px;
+}
+header .banner .brief p{
+    margin:20px 0 10px 0;
+    word-wrap: break-word;
+    -ms-word-break:normal;
+    word-break:normal;
+}
+main{
+    width: 100%;
+}
+main article{
+    margin: 0 auto;
+    height:480px;
+    padding:10px 0 0 0;
+    background-color: #ccc;
+}
+main article .box{
+    margin:0 110px;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: space-between;
+}
+main article .item{
+    width: 29%;
+    background-color: #fff;
+}
+main article .item img{
+    display: block;
+    margin:0 auto;
+    padding:10px;
+    width: 90%;
+    height: auto;
+    max-width: 90%;
+}
+main article .item p{
+    padding:20px;
+    text-indent:2em;
+}
+main section{
+    height:520px;
+    width: 100%;
+    background-color:#fff;
+}
+
+main section .secbox{
+    margin:0 auto;
+    width: 400px;
+    position: relative;
+}
+main section .secbox .avatar{
+    width: 160px;
+    height: 160px;
+    border-radius:80px;
+    background: url("../img/head01.png");
+    background-size: contain;
+    position: relative;
+    top:-80px;
+    left:50%;
+    margin-left: -80px;
+}
+main section .secbox h2{
+    text-align: center;
+    margin:-30px 0 20px;
+}
+
+footer{
+    width: 100%;
+    background-color: #000;
+    height: 400px;
+}
+footer .footnav{
+    width: 100%;
+    height:40px;
+    margin:0 auto;
+    border-bottom: 1px solid #ccc;
+}
+footer .footnav ul{
+    width: 300px;
+    margin:0 auto;
+    padding:10px;
+}
+
+footer .footnav ul li{
+    float: left;
+    margin:0 20px;
+}
+footer .links{
+    width: 90%;
+    margin: 0 auto;
+}
+footer .links .linkitem{
+    width: 20%;
+    padding:20px 0;
+    float:left;
+}
+footer .links .linkitem p{
+    color:#fff;
+    margin-bottom:10px;
+    text-indent: 0;
+}
+footer .links .linkitem a{
+    display: block;
+    font-size:12px;
+    margin-bottom: 5px;
+}
+
+footer .copyright{
+    height: 100px;
+    width:100px;
+    position: relative;
+    bottom:-112px;
+    left:50%;
+    margin-left:-50px;
+}
+footer .copyright span{
+    color:#fff;
+    display: block;
+    margin:10px;
+    text-align: center;
+}
+footer .copyright img{
+    display: block;
+    margin:0 auto;
+}
