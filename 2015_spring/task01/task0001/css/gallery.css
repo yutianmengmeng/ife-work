@@ -1,0 +1,294 @@
+@charset "utf-8";
+.container{
+    width: 980px;
+    height: auto;
+    margin:0 auto;
+    display: flex;
+    flex-flow:row nowrap;
+    justify-content: space-between;
+    padding-top:70px;
+}
+
+main{
+    width: 710px;
+    height: 1000px;
+    margin:50px auto;
+    box-sizing: border-box;
+    position: relative;
+}
+main .gallery-content{
+    width: 100%;
+    height: 680px;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding:20px;
+}
+main .gallery-content .gallery-item{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.gallery-item ul{
+    display: inline-block;
+    vertical-align: top;
+    margin:2px;
+}
+.gallery-item ul li {
+    width: 160px;
+    background-color: yellowgreen;
+    margin-bottom: 10px;
+}
+.gallery-item ul li.pink{
+    background-color: lightgreen;
+}
+.gallery-item ul li.blue{
+    background-color: lightskyblue;
+}
+.gallery-item ul li.grey{
+    background-color:lightcoral;
+}
+.gallery-item ul li img{
+    width: 100%;
+    display: block;
+}
+.gallery-item ul li div{
+    color:#000;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.gallery-item ul li div span{
+    float: left;
+    color:#fff;
+    font-size: 14px;
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+    border:1px solid #fff;
+    line-height: 26px;
+    text-align: center;
+}
+.gallery-item ul li div h4,.gallery-item ul li div p{
+    text-align: left;
+    padding-left:40px;
+}
+main .gallery-tab{
+    position: absolute;
+    top:-50px;
+    left:0;
+    height: 50px;
+    background-color: yellowgreen;
+}
+.gallery-tab nav a{
+    height: 50px;
+    display: inline-block;
+    float: left;
+    background-color: #fff;
+    color:#000;
+    line-height: 50px;
+    text-align: center;
+    border-right:1px solid #eee;
+    box-sizing: border-box;
+    position: relative;
+
+}
+.gallery-tab nav a span{
+    display: block;
+    padding: 0 13px;
+}
+.gallery-tab nav a::before{
+    content: '';
+    display: block;
+    top:-2px;
+    left:0;
+    height: 2px;
+    background-color: red;
+}
+.gallery-tab nav a:hover::before{
+    background-color: blue;
+}
+.gallery-tab nav a.js::before{
+    background-color: yellow;
+}
+.gallery-tab nav a.js:hover::before{
+    background-color: green;
+}
+.gallery-tab nav a.ui::before{
+    background-color:pink;
+}
+.gallery-tab nav a.ui:hover::before{
+    background-color:deepskyblue;
+}
+.gallery-tab nav a.fa::before{
+    background-color: lightcoral;
+}
+.gallery-tab nav a.fa:hover::before{
+    background-color:darkseagreen;
+}
+.gallery-tab nav a.app::before{
+    background-color: lightgreen;
+}
+.gallery-tab nav a.app:hover::before{
+    background-color:darkred;
+}
+.gallery-tab nav a:first-child{
+    border-bottom:1px solid #eee;
+}
+main .more{
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    color:#000;
+    text-align: center;
+    margin:20px 0 50px;
+    line-height: 50px;
+}
+.container aside{
+    width: 250px;
+    height: 330px;
+}
+.container aside .item{
+    height:auto;
+    width:auto;
+    padding:19px;
+    box-sizing: border-box;
+}
+.container aside .search{
+    background-color:#fff;
+    height:80px;
+}
+.container aside .search input{
+    float: left;
+    display: block;
+    box-sizing: border-box;
+    padding-left:40px;
+    height:40px;
+    width: 170px;
+    background: url("../img/icon_search.gif") no-repeat 3px 3px;
+    background-size:20%;
+    border: 1px solid #eee;
+    outline:none;
+}
+.container aside .search span{
+    display: block;
+    float: left;
+    height:40px;
+    width: 42px;
+    text-align: center;
+    line-height: 40px;
+    background-color:#eee;
+}
+.container aside .ranking{
+    width: 100%;
+    height: 240px;
+    margin-top:10px;
+    background-color: #fff;
+}
+
+.container aside .ranking h4{
+    color:#666666;
+    font-size: 16px;
+    font-weight: 200;
+}
+.container aside .ranking ol {
+    width: 100%;
+    padding:20px;
+}
+
+.container aside .ranking ol li{
+    width: 100px;
+    height: 19px;
+    background-color: #fff;
+    border: 1px solid #522a5c;
+    margin:10px;
+    box-sizing: border-box;
+    position: relative;
+}
+.container  aside .ranking ol .top1 .content{
+    width: 90%;
+    height: 18px;
+    background-color: #522a5c;
+
+}
+.container  aside .ranking ol .top2 .content{
+    width: 80%;
+    height: 18px;
+    background-color: #522a5c;
+
+}
+.container  aside .ranking ol .top3 .content{
+    width: 68%;
+    height: 18px;
+    background-color: #522a5c;
+
+}
+.container  aside .ranking ol .top4 .content{
+    width: 50%;
+    height: 18px;
+    background-color: #522a5c;
+
+}.container  aside .ranking ol .top5 .content{
+     width: 40%;
+     height: 100%;
+     background-color: #522a5c;
+
+ }
+.container aside .ranking ol li::before{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #522a5c;
+    color:#fff;
+    font-size: 14px;
+    position: absolute;
+    left:-30px;
+    top:0;
+    text-align: center;
+
+}
+.container aside .ranking ol .top1::before{
+    content: '1';
+}
+.container aside .ranking ol .top2::before{
+    content: '2';
+}
+.container aside .ranking ol .top3::before{
+    content: '3';
+}
+.container aside .ranking ol .top4::before{
+    content: '4';
+}
+.container aside .ranking ol .top5::before{
+    content: '5';
+}
+
+.container aside .ranking ol li::after{
+    color: #000;
+    font-size: 14px;
+    width: 30px;
+    height: 20px;
+    position: absolute;
+    right: -40px;
+    top: 0;
+    font-weight:100;
+}
+.container aside .ranking ol .top1::after{
+    content:"Angularjs";
+}
+.container aside .ranking ol .top2::after{
+    content:"Vue";
+}
+
+.container aside .ranking ol .top3::after{
+    content:"Bootstrap";
+}
+
+.container aside .ranking ol .top4::after{
+    content:"jQuery";
+}
+.container aside .ranking ol .top5::after{
+    content:"Extjs";
+}
