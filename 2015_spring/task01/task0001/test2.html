@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>task0001_4testfile</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color: #eee;
+        }
+        .container{
+            width: 980px;
+            height: 1000px;
+            margin:100px auto;
+            display: flex;
+            flex-flow:row nowrap;
+            justify-content: space-between;
+            position: relative;
+        }
+        .resume-left{
+            width: 485px;
+            background-color: #fff;
+        }
+        .resume-left h3{
+            width: 140px;
+            margin:120px 0 50px 340px;
+            font-size: 16px;
+            color:#000;
+        }
+        .name{
+            height: 60px;
+        }
+        .phone-number{
+            height: 50px;
+        }
+        .education{
+            height: 100px;
+        }
+        .internship{
+            height: 120px;
+        }
+        .resume-right{
+            width: 485px;
+            background-color: #fff;
+        }
+        .resume-right p{
+            width: 240px;
+            margin:120px 0 50px 140px;
+            font-size: 14px;
+            color:#000;
+        }
+        p.education{
+            margin-top: 212px;
+        }
+        .container span{
+            display: block;
+        }
+       .my-photo{
+           position: absolute;
+           left:50%;
+           top:-90px;
+           margin-left:-90px;
+           width: 180px;
+           height: 180px;
+           border-radius: 90px;
+           background-color: #eee;
+       }
+        .my-photo img{
+            display: block;
+            position: absolute;
+            top:10px;
+            left:50%;
+            margin-left:-80px;
+            width: 160px;
+            height: 160px;
+            border-radius: 80px;
+        }
+        .resume-item{
+            width: 110px;
+            height: 110px;
+            border-radius: 55px;
+            background-color: #eee;
+            position: absolute;
+            left:50%;
+            margin-left: -55px;
+        }
+        .phone{
+            top:250px;
+        }
+        .school{
+            top:420px;
+        }
+        .company{
+            top:630px;
+        }
+        .resume-item img{
+            width: 90px;
+            height: 90px;
+            border-radius: 45px;
+            position: absolute;
+            top:10px;
+            left:50%;
+            margin-left: -45px;
+        }
+        .item-time{
+            width: 80px;
+            height: 40px;
+            border-radius: 13px;
+            background-color: #eee;
+            position: absolute;
+            left:50%;
+            margin-left:-40px;
+        }
+        .time0{
+            top:560px;
+        }
+        .time2{
+            top:780px;
+        }
+        .time3{
+            top:880px;
+        }
+        .item-time i{
+            display: block;
+            width: 60px;
+            height: 20px;
+            border-radius: 8px;
+            color:#000;
+            background-color: #fff;
+            position: absolute;
+            top:10px;
+            left:50%;
+            margin-left: -30px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="resume-left">
+            <h3 class="name">姓    名</h3>
+            <h3 class="phone-number">联系方式</h3>
+            <h3 class="education">教育背景</h3>
+            <h3 class="internship">实习经历</h3>
+        </div>
+        <span class="my-photo">
+            <img src="./img/head01.png" alt="">
+        </span>
+        <span class="resume-item phone">
+            <img src="./img/phone.jpg" alt="">
+        </span>
+        <span class="resume-item school">
+            <img src="./img/school.jpg" alt="">
+        </span>
+        <span class="item-time time0">
+            <i>2011</i>
+        </span>
+        <span class="resume-item company">
+            <img src="./img/company.jpg" alt="">
+        </span>
+        <span class="item-time time2">
+            <i>2014</i>
+        </span>
+        <span class="item-time time3">
+            <i>2015</i>
+        </span>
+        <div class="resume-right">
+            <p class="name">这里是自我介绍这里是自我介绍这里是自我介绍这里是自我介绍这里是自我介绍这里是自我介绍这里是自我介绍这里是自我介绍</p>
+            <p class="phone-number">手机:1111-111-1111</p>
+            <p class="education">xx大学<br>xxx专业</p>
+            <p class="internship">xx公司<br>这里是实习简介这里是实习简介这里是实习简介这里是实习简介这里是实习简介这里是实习简介这里是实习简介这里是实习简介这里是实习简介<br><br>xx公司<br>这里是实习简介这里是实习简介这里是实习简介这里是实习简介这里是实习简介这里是实习简介</p>
+        </div>
+    </div>
+</body>
+</html>
