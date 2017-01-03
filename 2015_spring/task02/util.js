@@ -128,3 +128,230 @@ function isMobilePhone(phone) {
 	var reg=/^1[3|5|8|7]\d{9}$/;
 	return reg.test(phone);
 }
+
+//3 DOM操作
+// 为element增加一个样式名为newClassName的新样式
+function addClass(element, newClassName) {
+	var ele_class=element.className;
+	var blank=(!ele_class)? ' ':'';
+	var added=ele_class+blank+newClassName;
+	element.className=added;
+}
+
+// 移除element中的样式oldClassName
+function removeClass(element, oldClassName) {
+	var ele_class=' '+element.className+' ';
+	ele_class=ele_class.replace(/(\s+)/gi,' ');
+	var removed=ele_class.replace(' '+oldClassName+' ',' ');
+	removed=removed.replace(/(^\s+)|(\s+$)/g,'');
+	element.className=removed;
+}
+
+// 判断siblingNode和element是否为同一个父元素下的同一级的元素，返回bool值
+function isSiblingNode(element, siblingNode) {
+	return siblingNode.parentNode===element.parentNode;
+}
+
+// 获取element相对于浏览器窗口的位置，返回一个对象{x, y}
+function getPosition(element) {
+ 	var offsetx=0;
+			offsetx+=element.offsetLeft;
+	var offsety=0;
+		offsety+=element.offsetTop;
+	//若是元素有父级元素
+	if(element.offsetParent!=null){
+		getPosition(element.offsetParent)
+	}
+	return {x:offsetx,y:offsety}
+}
+// 实现一个简单的Query
+function $(selector) {
+	if (!selector) {
+		return null;
+	}
+	if (selector == document) {
+		return document;
+	}
+	selector = selector.trim();
+	if (selector.indexOf(" ") !== -1) { //若存在空格
+		var selectorArr = selector.split(/\s+/); //拆成数组
+		var rootScope = myQuery(selectorArr[0]); //第一次的查找范围
+		var i = null;
+		var j = null;
+		var result = [];
+		//循环选择器中的每一个元素
+		for (i = 1; i < selectorArr.length; i++) {
+			for (j = 0; j < rootScope.length; j++) {
+				result.push(myQuery(selectorArr[i], rootScope[j]));
+			}
+			// rootScope = result;
+			// 目前这个方法还有bug
+		}
+		return result[0][0];
+	} else { //只有一个，直接查询
+		return myQuery(selector, document)[0];
+	}
+}
+/**
+ * 针对一个内容查找结果 success
+ * @param  {String} selector 选择器内容
+ * @param  {Element} root    根节点元素
+ * @return {NodeList数组}    节点列表，可能是多个节点也可能是一个
+ */
+function myQuery(selector, root) {
+	var signal = selector[0]; //
+	var allChildren = null;
+	var content = selector.substr(1);
+	var currAttr = null;
+	var result = [];
+	root = root || document; //若没有给root，赋值document
+	switch (signal) {
+		case "#":
+			result.push(document.getElementById(content));
+			break;
+		case ".":
+			allChildren = root.getElementsByTagName("*");
+			// var pattern0 = new RegExp("\\b" + content + "\\b");
+			for (i = 0; i < allChildren.length; i++) {
+				currAttr = allChildren[i].getAttribute("class");
+				if (currAttr !== null) {
+					var currAttrsArr = currAttr.split(/\s+/);
+					console.log(currAttr);
+					for (j = 0; j < currAttrsArr.length; j++) {
+						if (content === currAttrsArr[j]) {
+							result.push(allChildren[i]);
+							console.log(result);
+						}
+					}
+				}
+			}
+			break;
+		case "[": //属性选择
+			if (content.search("=") == -1) { //只有属性，没有值
+				allChildren = root.getElementsByTagName("*");
+				for (i = 0; i < allChildren.length; i++) {
+					if (allChildren[i].getAttribute(selector.slice(1, -1)) !== null) {
+						result.push(allChildren[i]);
+					}
+				}
+			} else { //既有属性，又有值
+				allChildren = root.getElementsByTagName("*");
+				var pattern = /\[(\w+)\s*\=\s*(\w+)\]/; //为了分离等号前后的内容
+				var cut = selector.match(pattern); //分离后的结果，为数组
+				var key = cut[1]; //键
+				var value = cut[2]; //值
+				for (i = 0; i < allChildren.length; i++) {
+					if (allChildren[i].getAttribute(key) == value) {
+						result.push(allChildren[i]);
+					}
+				}
+			}
+			break;
+		default: //tag
+			result = root.getElementsByTagName(selector);
+			break;
+	}
+	return result;
+}
+
+// 可以通过id获取DOM对象，通过#标示，例如
+$("#adom"); // 返回id为adom的DOM对象
+
+// 可以通过tagName获取DOM对象，例如
+$("a"); // 返回第一个<a>对象
+
+// 可以通过样式名称获取DOM对象，例如
+$(".classa"); // 返回第一个样式定义包含classa的对象
+
+// 可以通过attribute匹配获取DOM对象，例如
+$("[data-log]"); // 返回第一个包含属性data-log的对象
+
+$("[data-time=2015]"); // 返回第一个包含属性data-time且值为2015的对象
+
+// 可以通过简单的组合提高查询便利性，例如
+$("#adom .classa"); // 返回id为adom的DOM所包含的所有子节点中，第一个样式定义包含classa的对象
+
+//4.事件
+// 给一个element绑定一个针对event事件的响应，响应函数为listener
+function addEvent(element, event, listener) {
+	// your implement
+	if(element.addEventListener){
+		element.addEventListener(event,listener);
+	}
+	else if(element.attachEvent){
+		element.attachEvent("on"+event,listener);
+	}
+}
+
+
+// 移除element对象对于event事件发生时执行listener的响应
+function removeEvent(element, event, listener) {
+	if(element.removeEventListener){
+		element.removeEventListener(event,listener);
+	}else if(event.detachEvent){
+		element.detachEvent("on"+event,listener);
+	}
+}
+
+//IE8+支持addEventListener(),IE8-使用attachEvent()
+
+// 实现对click事件的绑定
+function addClickEvent(element, listener) {
+	addEvent(element,"click",listener);
+}
+
+// 实现对于按Enter键时的事件绑定
+function addEnterEvent(element, listener) {
+	addEvent(element,"keydown",function(event){
+		if(event.keyCode==13){
+			listener();
+		}
+	})
+}
+
+
+//事件代理机制
+function delegateEvent(element,tag,eventName,listener){
+	addEvent(elemen,eventName,function(event){
+		var target=event.target || event.srcElement;
+		if(target.tagName.toLowerCase()==tag.toLowerCase()){
+			listener.call(target,event);
+		}
+	})
+}
+
+//BOM操作
+// 判断是否为IE浏览器
+function isIE() {
+	if(!!window.ActiveXObject || "ActiveXObject" in window){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+// 设置cookie
+function setCookie(cookieName, cookieValue, expiredays) {
+	var cookie=cookieName+"="+encodeURIComponent(cookieValue);
+	if(typeof expiredays === "number"){
+		cookie += ";max-age="+(expiredays*60*60*24);
+	}
+	document.cookie=cookie;
+}
+// 获取cookie值
+function getCookie(cookieName) {
+	var cookie={};
+	var all=document.cookie;
+	if(all===' '){
+		return cookie;
+	}
+	var list=all.split(";");
+	for(var i=0;i<list.length;i++){
+		var p=list[i].indexOf("=");
+		var name=list[i].substr(0,p);
+		var value=list[i].substr(p+1);
+		value=decodeURIComponent(value);
+		cookie[name]=value;
+	}
+	return cookie;
+}
